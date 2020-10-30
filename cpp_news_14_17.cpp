@@ -139,9 +139,10 @@ int main(){
 	c = nullptr;
 	
 	section(8);
-	// C++da pointerlarla işlem yapılacağı zaman leak oluşmaması için destructor çağırmak unutulmamalıdır.
-	// C++14 ile gelen Smart Pointer özelliğiyle destructor çağırma zorunluluğu ortadan kalkmıştır.
-	// Bu özellik için "memory" kütüphanesi eklenmeli. "make_unique" ilede smart pointer oluşturulur.
+	// C++da pointerlarla işlem yapılacağı zaman leak oluşmaması için destructor çağırmak 
+	// unutulmamalıdır. C++14 ile gelen Smart Pointer özelliğiyle destructor çağırma zorunluluğu 
+	// ortadan kalkmıştır. Bu özellik için "memory" kütüphanesi eklenmeli. "make_unique" ilede 
+	// smart pointer oluşturulur.
 	X *px = new X{};
 	px->use();
 	delete px;
@@ -152,12 +153,12 @@ int main(){
 	//cout << typeid(spx).name() << endl;
 	
 	section(10);
-	// Chrone kütüphanesi ile kullanılan zaman birimlerinde oluşan karmaşıklıklar önlenmiştir. Normalde
-	// integer tipinde tutulduğunda kod içerisinde unit değişimi sırasında birçok hata ile karşılaşılabilmektedir.
-	// Ancak bu kütüphane sayesinde farklı zaman tiplerinde değişkenler tanımlansa bile işlemin yapılacağı
-	// yerde otomatik değişken tipi güncellemesi yapılmaktadır. Bu birim eşitleme işlemi compile timeda 
-	// yapıldığı için performansta sıkıntı oluşturmamaktadır.
-	//seconds time0 = 12;  Bu tarzda bir kullanım yapılmamaktadır.
+	// Chrone kütüphanesi ile kullanılan zaman birimlerinde oluşan karmaşıklıklar önlenmiştir.
+	// Normalde integer tipinde tutulduğunda kod içerisinde unit değişimi sırasında birçok hata 
+	// ile karşılaşılabilmektedir. Ancak bu kütüphane sayesinde farklı zaman tiplerinde değişkenler 
+	// tanımlansa bile işlemin yapılacağı yerde otomatik değişken tipi güncellemesi yapılmaktadır.  
+	// Bu birim eşitleme işlemi compile timeda yapıldığı için performansta sıkıntı oluşturmamaktadır.
+	// seconds time0 = 12;  Bu tarzda bir kullanım yapılmamaktadır.
 	seconds time0{12};
 	auto time1 = 10s;
 	auto time2 = 20ms;
@@ -172,9 +173,9 @@ int main(){
 	
 	section(10);
 	// Lambda fonksiyonları ile fonksiyonu dışarda tanımlamadan kullanmak istediğimiz zaman
-	// işe yaramaktadır. "[]" işareti lambda fonksiyonunun başladığını ifade etmektedir. C++14 ile
-	// fonksiyon parametreleri auto seçilebilmektedir. Bu türdeki fonksitonlara generic veya polymorphic 
-	// lambda denilmektedir.
+	// işe yaramaktadır. "[]" işareti lambda fonksiyonunun başladığını ifade etmektedir. C++14 
+	// ile fonksiyon parametreleri auto seçilebilmektedir. Bu türdeki fonksitonlara generic 
+	// veya polymorphic lambda denilmektedir.
 	vector<int> seri{1,65,123,987,12,5,2,0,342};
 	
 	sort(begin(seri), end(seri),
@@ -189,10 +190,10 @@ int main(){
 	
 	section(11);
 	// Lambda fonksiyonunda köşeli parantez içine bodysinde kullanılacak değerler pass edilebilir. 
-	// Normal değişkenler comma seperate olarak yazıldığında sadece value passing gerçekleşir. Aktarılan değişkende
-	// değişiklik olması için "&" işareti ile adresi iletilebilir. Ancak unique_ptr'ların adresleri kopyalanamadığı
-	// için onların adresleri ancak başka bir adrese "move" fonksiyonuyla aktarılabilir. Ancak bu noktada da eski
-	// adres değişgeni kullanılamaz.
+	// Normal değişkenler comma seperate olarak yazıldığında sadece value passing gerçekleşir. 
+	// Aktarılan değişkende değişiklik olması için "&" işareti ile adresi iletilebilir. Ancak 
+	// unique_ptr'ların adresleri kopyalanamadığı için onların adresleri ancak başka bir adrese 
+	// "move" fonksiyonuyla aktarılabilir. Ancak bu noktada da eski adres değişgeni kullanılamaz.
 	unique_ptr<int> degisgen = make_unique<int>(4);			//??? destructionı oluşmadı
 	auto lambda_function = [ptr=move(degisgen)]{
 		cout << "X değeri =" << *ptr << endl;
@@ -201,9 +202,10 @@ int main(){
 	//cout << "X değeri =" << *degisgen << endl;
 	
 	section(11);
-	// c++17 ile birlikte if statementlarına özel variable declaration özelliği gelmiştir. Bu sayede aynı isimde farklı if
-	// statementlarında aynı değişken ismiyle değişken tanımlanabilmekte ve daha temiz bir görüntü oluşturmaktadır. Tanımlanan
-	// variable yapı elselerle devem ettirilirse de onların içinde de kullanılabilir.
+	// c++17 ile birlikte if statementlarına özel variable declaration özelliği gelmiştir. 
+	// Bu sayede aynı isimde farklı if statementlarında aynı değişken ismiyle değişken 
+	// tanımlanabilmekte ve daha temiz bir görüntü oluşturmaktadır. Tanımlanan variable yapı 
+	// elselerle devem ettirilirse de onların içinde de kullanılabilir.
 	if(const auto it = find(begin(seri), end(seri), 123); it != end(seri)){
 		*it = -1;
 	}
@@ -216,16 +218,17 @@ int main(){
 	cout << endl;
 	
 	section(11);
-	// c++17 ile birlikte if statementa "constexpr" eklentisi gelmiştir. Bununla birlikte if argümanı generic olduğu zaman farklı
-	// tiplerde return typelı koşullar girilebilmektedir.
+	// c++17 ile birlikte if statementa "constexpr" eklentisi gelmiştir. Bununla birlikte 
+	// if argümanı generic olduğu zaman farklı tiplerde return typelı koşullar girilebilmektedir.
 	int int1 = 14;
 	string str1 = "Yusuf Reis";
 	cout << print(int1) << endl;
 	cout << print(str1) << endl;
 	
 	section(12);
-	// c++17 ile birlikte Structured Binding özelliği gelmiştir. Bu özellik sayesinde birden fazla output dönen ifadeler "[]" ile
-	// birden çok değişkene işaretlenebilir. Yine bu özellikle birlikte map'in içinde 2'li iterator dolaştırılabilir.
+	// c++17 ile birlikte Structured Binding özelliği gelmiştir. Bu özellik sayesinde birden 
+	// fazla output dönen ifadeler "[]" ile birden çok değişkene işaretlenebilir. Yine bu 
+	// özellikle birlikte map'in içinde 2'li iterator dolaştırılabilir.
 	map<string, string> sozluk{
 		{"Yusuf", "Ozben"},
 		{"Itu", "Koridor"}
@@ -238,7 +241,8 @@ int main(){
 	}
 	
 	section(13);
-	//c++17 ile Nested Namespace özelliği gelmiştir. Bu özellikle birlikte iç içe yazılan namespace'ler :: olarak yan yana ifade edilebilmekte
+	// c++17 ile Nested Namespace özelliği gelmiştir. Bu özellikle birlikte iç içe yazılan
+	//  namespace'ler :: olarak yan yana ifade edilebilmekte
 	
 	cout << "**********************************Kodun sonu**********************************" << endl;
 }
