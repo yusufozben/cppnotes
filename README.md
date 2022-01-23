@@ -1,9 +1,20 @@
 # C++ Notes
 
+## String
+
+### Substring
+
+- The first value is the starting index and the second is the length of substring.
+```c
+string s = "123456789";
+string sub_string = s.substr(2, 2); // "34"
+
+```
+
 ## Sorting  
 ### Vector sorting
--- It also works with strings.
--- Pairs are primarily according to their first elements.
+- It also works with strings.
+- Pairs are primarily according to their first elements.
 
 ```c
 vector<int> arr = {4,2,5,3,5,8,3};
@@ -20,7 +31,7 @@ sort(a,a+n);
 ```
 
 ### Struct Comparison Operator
--- Defining comparison function for struct provides sort function capability.
+- Defining comparison function for struct provides sort function capability.
 ```c
 struct P {
   int x, y;
