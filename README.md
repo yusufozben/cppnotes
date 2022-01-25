@@ -1,5 +1,23 @@
 # C++ Notes
 
+## Integer
+
+### Integer Limit Control
+- Before adding one more digit to the end of an integer, check it is in the range of integer or not.
+- 32 bit integer is between [-2<sup>31</sup>, 2<sup>31</sup> - 1]
+```c
+int res, added;
+...
+if (res > INT_MAX/10 || (res == INT_MAX / 10 && added > 7)){
+  //Cannot add
+}else if (res < INT_MIN/10 || (res == INT_MIN / 10 && added < -8)){
+  //Cannot add
+}else{
+  res = res * 10 + added;
+}
+```
+
+
 ## String
 
 ### Substring
