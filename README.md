@@ -20,6 +20,9 @@ int main() {
 
 - It is used when searching an element in an array if the array is sorted.
 - O(logn)
+
+### Method 1
+
 ```c
 int size = 100;
 vector<int> arr(size, 0);
@@ -39,7 +42,27 @@ int binarySearch(int searchedItem){
     return -1;
 }
 ```
+### Method 2
+- This implementation is based on starting jumping long and becoming slower when getting close to the target.
+```c
+int size = 100;
+vector<int> arr(size, 0);
 
+int binarySearch(int searchedItem){
+    int k=0;
+    for(int b=size/2; b>=1; b/=2){ // b is jump size
+        while(b+k<size && arr[b+k] <= searchedItem){
+            k += b;
+        }
+    }
+
+    if(arr[k] == searchedItem){
+        return k;
+    }else{
+        return -1;
+    }
+}
+```
 
 ## Integer
 
