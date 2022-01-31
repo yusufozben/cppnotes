@@ -64,6 +64,24 @@ int binarySearch(int searchedItem){
 }
 ```
 
+### Find First True
+
+- The problem is finding first true in arr.
+- True values start in an arbitrary index and all values after that are true.
+
+```c
+vector<bool> arr = {false,false,false,false,false,false,false,false,true,true,true,true};
+
+int k = -1;
+for(int b=arr.size()/2; b>=1; b/=2){
+    while(!arr[k+b]){
+        cout << k << " " << b << '\n';
+        k += b;
+    }
+}
+k = k + 1;
+```
+
 ## Integer
 
 ### Integer Limit Control
