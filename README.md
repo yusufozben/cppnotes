@@ -82,6 +82,22 @@ for(int b=arr.size()/2; b>=1; b/=2){
 k = k + 1;
 ```
 
+### Find Max Value in Mountain Array
+- Finding max value index in the array which has a characteristic as increases until an index then decrease until the end.
+
+```c
+vector<int> arr = {1,2,4,5,6,8,9,11,14,16,19,14,13,12,10,8,5,3,1};
+
+int x = -1;
+for(int n = arr.size()/2; n>=1; n/=2){
+    while(arr[n+x] < arr[n+x+1]){
+        x += n;
+    }
+}
+x = x + 1;
+```
+
+
 ## Integer
 
 ### Integer Limit Control
