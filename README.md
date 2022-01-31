@@ -16,6 +16,30 @@ int main() {
     
 }
 ```
+## Binary Search
+
+- It is used when searching an element in an array if the array is sorted.
+- O(logn)
+```c
+int size = 100;
+vector<int> arr(size, 0);
+
+int binarySearch(int searchedItem){
+    int a=0, b=size-1;
+    while(a<=b){
+        int m = a + (b-a)/2;
+        if(arr[m] == searchedItem){
+            return m;
+        }else if(arr[m] > searchedItem){
+            b = m-1;
+        }else if(arr[m] < searchedItem){
+            a = m+1;
+        }
+    }
+    return -1;
+}
+```
+
 
 ## Integer
 
