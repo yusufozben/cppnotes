@@ -30,7 +30,15 @@ cout << s.count(2) << '\n'; // 1
 cout << ms.count(2) << '\n'; // 3
 ```
 
+### Multiset Erase
 
+```c
+multiset<int> ms = {1,2,2,2,3};
+ms.erase(ms.find(2)); // Erase one of 2
+cout << ms.count(2) << '\n'; // 2
+ms.erase(2); // Erase all 2
+cout << ms.count(2) << '\n'; // 0
+```
 
 ## Vector
 
