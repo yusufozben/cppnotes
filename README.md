@@ -143,7 +143,14 @@ if (res > INT_MAX/10 || (res == INT_MAX / 10 && added > 7)){
 ```c
 string s = "123456789";
 string sub_string = s.substr(2, 2); // "34"
+```
 
+### Find char in string
+
+- It returns first char index in string.
+```c
+string s = "Yusuf";
+s.find('s'); //2
 ```
 
 ## Sorting  
