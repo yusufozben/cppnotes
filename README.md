@@ -31,6 +31,13 @@ if(m.find("searched_key") == m.end()){
 }
 ```
 
+### Iterate in map
+
+```c
+for (auto x : m){ 
+    cout << x.first << " " << x.second << "\n";
+}
+```
 ## Set
 
 ### Set vs. Multiset
