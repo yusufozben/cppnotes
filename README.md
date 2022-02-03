@@ -17,6 +17,20 @@ int main() {
 }
 ```
 
+## Map
+
+### Is key exist?
+
+```c
+if(m.count("searched_key")){
+    // Key found
+}
+
+if(m.find("searched_key") == m.end()){
+    // Key couldn't found
+}
+```
+
 ## Set
 
 ### Set vs. Multiset
