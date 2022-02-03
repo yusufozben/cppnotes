@@ -17,6 +17,21 @@ int main() {
 }
 ```
 
+## Set
+
+### Set vs. Multiset
+
+- Set can contains an element ones, but multiset can contains more.
+
+```c
+set<int> s = {1,2,2,2,3};
+multliset<int> ms = {1,2,2,2,3};
+cout << s.count(2) << '\n'; // 1
+cout << ms.count(2) << '\n'; // 3
+```
+
+
+
 ## Vector
 
 ### Initializations
