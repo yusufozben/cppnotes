@@ -16,6 +16,25 @@ int main() {
     
 }
 ```
+
+## Vector
+
+### Initializations
+```c
+vector<int> v1 = {1,2,3,4};
+vector<int> v2(10); // size 10, initial value 0
+vector<int> v3(10, 5); // size 10, initial value 5
+```
+
+
+### back() and pop_back()
+- back() is for printing the last element, pop_back() is for deleting the last element.
+```c
+vector<int> v;
+cout << v.back() << '\n';
+v.pop_back;
+```
+
 ## Binary Search
 
 - It is used when searching an element in an array if the array is sorted.
