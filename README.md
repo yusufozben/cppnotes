@@ -17,6 +17,20 @@ int main() {
 }
 ```
 
+## Bitset
+
+### Initialization
+
+```c
+bitset<10> bs(string("0110100101"));
+```
+
+### The count of 1s in the bitset
+
+```c
+cout << s.count() << "\n"; 
+```
+
 ## Map
 
 ### Is key exist?
