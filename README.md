@@ -93,6 +93,13 @@ cout << v.back() << '\n';
 v.pop_back;
 ```
 
+### Finding the smallest element index
+
+```c
+vector<int> v;
+int x = (int) (min_element(v.begin(), v.end()) - v.begin());
+```
+
 ## Binary Search
 
 - It is used when searching an element in an array if the array is sorted.
